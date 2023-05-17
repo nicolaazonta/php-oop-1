@@ -2,32 +2,27 @@
 
 class Genre
 {
-    //definizione variabili d'istanza
-    public $bho;
-
-    //definizione costruttore
-    public function __construct(string $_bho)
+    //definizione costruttore, definizione variabili d'istanza NUOVA SINTASSI
+    public function __construct(public string $name)
     {
-        $this->bho = $_bho;
+        $this->name = $name;
     }
 }
 class Movie
-{
-    //definizione variabili d'istanza
-    public $title;
-    public $description;
-    public $main_actor;
-    public $poster;
-    public $Genre = 'adventure'; //has a
-
-    //definizione costruttore
-    public function __construct(string $_title, string $_description, string $_main_actor, string $_poster, Genre $_genre)
+{  
+    //definizione costruttore, definizione variabili d'istanza NUOVA SINTASSI
+    public function __construct(public string $title, public string $description, public string $main_actor, public string $poster, public Genre $genre)
     {
-        $this->title = $_title;
-        $this->description = $_description;
-        $this->main_actor = $_main_actor;
-        $this->poster = $_poster;
-        $this->Genre = $_genre;
+        $this->title = $title;
+        $this->description = $description;
+        $this->main_actor = $main_actor;
+        $this->poster = $poster;
+        $this->genre = $genre;
+    }
+
+    public function getMovieDetails()
+    {
+        return "Title: $this->title, Description: $this->description";
     }
 }
 
